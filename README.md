@@ -13,7 +13,7 @@ RTS3D only require RGB images without synthetic data, instance segmentation, CAD
 - **Accuracy:** SOTA on the KITTI benchmark.
 - **Anchor Free:** No 2D or 3D anchor are reauired
 - **Easy to deploy:** RTS3D uses conventional convolution operations and MLP, so it is very easy to deploy and accelerate.
-## KM3D Baseline and Model Zoo
+## RTS3D Baseline and Model Zoo
 All experiments are tested with Ubuntu 16.04, Pytorch 1.0.0, CUDA 9.0, Python 3.6, single NVIDIA 2080Ti
 
 IoU Setting 1: Car IoU > 0.5, Pedestrian IoU > 0.25, Cyclist IoU > 0.25
@@ -32,6 +32,18 @@ IoU Setting 2: Car IoU > 0.7, Pedestrian IoU > 0.5, Cyclist IoU > 0.5
 | Car- Recall-11  | 2          | 45.5      |90.41, 78.70, 70.03     | 90.26, 77.23, 68.28    | 76.56, 56.46, 48.20     | 63.65, 44.50, 37.48    |
 | Car- Recall-40  | 2          | 45.5      |95.75, 79.61, 69.69     | 93.57, 76.64, 66.72    | 78.12, 54.75, 47.09     | 63.99, 41.78, 34.96    |
 
+- Training on KITTI train split and evaluation on val split.
+    - FCE Space Resolution: 10 * 10 * 10
+    - Recall split: 11
+    - Iteration: 2
+    - Model: ([Google Drive](https://drive.google.com/file/d/1M150Q72d_FhjFHME-obRrs7xluttdEia/view?usp=sharing)), ([Baidu Cloud](https://pan.baidu.com/s/1rK-MhHjyeWQILlm3YWzwMg) 提取码：4t4u)
+
+| Class           |AP BEV IoU Setting1     | AP 3D IoU Setting1     |AP BEV IoU Setting2      | AP 3D IoU Setting2     |
+| :----:          | :----:                 | :----:                 |:----:                   | :----:                 |
+| -               |Easy / Moderate / Hard  | Easy / Moderate / Hard | Easy / Moderate / Hard  | Easy / Moderate / Hard |
+| Car             |90.18, 78.46, 69.76     | 89.88, 76.64, 67.86    | 74.95, 54.07, 46.78     | 58.50, 39.74, 34.83    |
+| Pedestrian      |57.12, 48.82, 40.88     | 56.36, 48.29, 40.22    | 32.16, 26.31, 21.28     | 26.95, 20.77, 19.74    |
+| Cyclist         |54.48, 35.78, 30.80     | 53.86, 30.90, 30.52    | 33.59, 20.80, 20.14     | 31.05, 20.26, 18.93    |
 
 
 ## Installation

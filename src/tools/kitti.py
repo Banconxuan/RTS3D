@@ -66,8 +66,9 @@ def read_clib0(calib_path):
             calib = np.array(line[:-1].split(' ')[1:], dtype=np.float32)
             calib = calib.reshape(3, 4)
             return calib
-cats = ['Pedestrian', 'Car', 'Cyclist', 'Van', 'Truck', 'Person_sitting',
+cats = [ 'Car', 'Pedestrian','Cyclist', 'Van', 'Truck', 'Person_sitting',
         'Tram', 'Misc', 'DontCare']
+det_cats = ['Car', 'Pedestrian', 'Cyclist']
 cat_ids = {cat: i + 1 for i, cat in enumerate(cats)}
 # cat_info = [{"name": "pedestrian", "id": 1}, {"name": "vehicle", "id": 2}]
 F = 721
@@ -131,7 +132,7 @@ for SPLIT in SPLITS:
                 bbox=[0.,0.,0.,0.]
                 calib_list = np.reshape(calib, (12)).tolist()
                 calib_list3 = np.reshape(calib3, (12)).tolist()
-                if tmp[0] == 'Car':
+                if tmp[0] in det_cats:
                     if mem==True:
                         mem=False
                         ret['images'].append(image_info)
@@ -142,7 +143,7 @@ for SPLIT in SPLITS:
                            'iscrowd': 0,
                            'image_id': image_id,
                            'bbox': _bbox_to_coco_bbox(bbox),
-                           'category_id': 1,
+                           'category_id': cat_id,
                            'id': int(len(ret['annotations']) + 1),
                            'dim': dim,
                            'rotation_y': rotation_y,

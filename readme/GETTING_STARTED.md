@@ -5,7 +5,7 @@ Run following command to train model with ResNet-18 backbone.
    ~~~
    python ./src/main.py --data_dir ./kitti_format --exp_id RTS3D --batch_size 12 --master_batch_size 6 --lr 1.25e-4 --gpus 0,1 --num_epochs 200
    ~~~
-## Generate monocular 3D object detection results from [KM3D](https://github.com/Banconxuan/RTM3D) or download them from [KM3D-val-results](https://drive.google.com/file/d/1W7cNEhV0VUOlo42dSKloDkDnouy5tssP/view?usp=sharing)
+## Generate monocular 3D object detection results from [KM3D](https://github.com/Banconxuan/RTM3D) or download them from [KM3D-val-results](https://drive.google.com/file/d/1W7cNEhV0VUOlo42dSKloDkDnouy5tssP/view?usp=sharing) or [KM3D-val-multi-class-results](https://drive.google.com/file/d/18StbQ1NtDIWEGDtVpe6lptob8fuowhDP/view?usp=sharing)
 ## Results generation
 Run following command for results generation.
    ~~~
